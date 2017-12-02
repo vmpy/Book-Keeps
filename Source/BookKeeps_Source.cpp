@@ -51,9 +51,13 @@ int main(void)
 	//如果工作目录中存在文件:
 	if(len)
 	{
-    		len--;
+    	len--;
 		MarkedBooks = new Book[len];
 		IndexFilling();
+	}
+	else
+	{
+		MarkedBooks = NULL;
 	}
 	
 	std::cin >> Choice;
@@ -86,6 +90,12 @@ int main(void)
 		}
 		case 2:
 		{
+			if(MarkedBooks == NULL)
+			{
+				std::cout << "您还未曾记录过图书!" << std::endl;
+				goto Lee;
+				break; 
+			} 
 			std::cout << "\n图书目录:" << std::endl; 
 			for(Tmp = 0;Tmp < len;Tmp++)
 			{
@@ -101,6 +111,12 @@ int main(void)
 		}
 		case 3:
 		{ 
+			if(MarkedBooks == NULL)
+			{
+				std::cout << "您还未曾记录过图书!" << std::endl;
+				goto Lee;
+				break; 
+			} 
 			char DelFileName[20];
 			
 			std::cout << "\n图书目录:" << std::endl; 
@@ -119,6 +135,12 @@ int main(void)
 		}
 		case 4:
 		{
+			if(MarkedBooks == NULL)
+			{
+				std::cout << "您还未曾记录过图书!" << std::endl;
+				goto Lee;
+				break; 
+			} 
 			char DelFileName[20];
 			int NowChioce;
 			int thisNum;
@@ -180,6 +202,13 @@ int main(void)
 		}
 		case 5:
 		{
+			if(MarkedBooks == NULL)
+			{
+				std::cout << "您还未曾记录过图书!" << std::endl;
+				goto Lee;
+				break; 
+			} 
+			
 			int Num;
 			
 			std::cout << "\n图书目录:" << std::endl; 
@@ -354,6 +383,7 @@ void Book::Print(void)
 	std::cout << "书籍ISBN:" << std::endl;
 	std::cout << m_ISBN << std::endl;
 }
+
 /**
 *用星星符号的形式打印星级. 
 */
