@@ -48,10 +48,14 @@ int main(void)
 	
 	//填充MarkedBooks数组信息. 
 	len = BooksFind();
-    len--;
-	MarkedBooks = new Book[len];
-	IndexFilling();
-	//
+	//如果工作目录中存在文件:
+	if(len)
+	{
+    		len--;
+		MarkedBooks = new Book[len];
+		IndexFilling();
+	}
+	
 	std::cin >> Choice;
 	switch(Choice)
 	{ 
